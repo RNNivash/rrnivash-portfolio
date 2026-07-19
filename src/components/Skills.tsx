@@ -51,7 +51,7 @@ export default function Skills() {
         
         {/* Section Header */}
         <div className="flex flex-col space-y-3 mb-16 md:mb-24">
-          <span className="text-xs font-mono text-neutral-500 tracking-wider uppercase">
+          <span className="text-xs font-mono text-brand-accent-purple tracking-wider uppercase">
             Technical Competence
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white font-sans">
@@ -80,7 +80,10 @@ export default function Skills() {
               <motion.div
                 key={group.category}
                 variants={cardVariants}
-                className={`border border-neutral-900 rounded-xl p-6 bg-[#0a0a0c]/80 flex flex-col justify-between hover:border-neutral-800 transition-all duration-300 ${config.accentColor}`}
+                whileHover={{ y: -5 }}
+                className={`rounded-xl p-6 glass-card glass-card-hover flex flex-col justify-between ${config.accentColor} ${
+                  group.category === "AI Engineering" ? "md:col-span-2" : ""
+                }`}
                 id={`skill-card-${group.category.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 <div className="space-y-6">
@@ -99,7 +102,7 @@ export default function Skills() {
                     {group.items.map((skill) => (
                       <span
                         key={skill}
-                        className="bg-neutral-950 border border-neutral-900 text-[11px] font-mono text-neutral-400 px-3 py-1.5 rounded-md hover:text-white hover:border-neutral-800 transition-colors cursor-default"
+                        className="bg-neutral-950 border border-neutral-900/60 text-[11px] font-mono text-neutral-400 px-3 py-1.5 rounded-md hover:text-white hover:border-brand-accent-blue/40 hover:scale-[1.03] transition-all cursor-default"
                       >
                         {skill}
                       </span>
@@ -108,7 +111,7 @@ export default function Skills() {
                 </div>
 
                 {/* Aesthetic footer border marker */}
-                <div className="mt-6 pt-3 border-t border-neutral-900/50 flex justify-between items-center text-[10px] font-mono text-neutral-600">
+                <div className="mt-6 pt-3 border-t border-neutral-900/50 flex justify-between items-center text-[10px] font-mono text-neutral-400">
                   <span>DEPLOYED ON SHIELD</span>
                   <span className="h-1.5 w-1.5 rounded-full bg-neutral-700" />
                 </div>

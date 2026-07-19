@@ -9,7 +9,7 @@ export default function Experience() {
         
         {/* Section Header */}
         <div className="flex flex-col space-y-3 mb-16 md:mb-24">
-          <span className="text-xs font-mono text-neutral-500 tracking-wider uppercase">
+          <span className="text-xs font-mono text-brand-accent-purple tracking-wider uppercase">
             Professional History
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white font-sans">
@@ -23,16 +23,16 @@ export default function Experience() {
           {experienceData.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="relative mb-12 last:mb-0 group"
               id={`experience-item-${index}`}
             >
               {/* Timeline dot / icon indicator */}
-              <div className="absolute -left-[35px] sm:-left-[45px] top-1 h-7 w-7 rounded-full bg-neutral-950 border border-neutral-800 flex items-center justify-center group-hover:border-neutral-500 transition-colors duration-300">
-                <Briefcase className="h-3.5 w-3.5 text-neutral-400 group-hover:text-white transition-colors" />
+              <div className="absolute -left-[35px] sm:-left-[45px] top-1 h-7 w-7 rounded-full bg-[#0a0a0c] border border-neutral-800 flex items-center justify-center group-hover:border-brand-accent-purple group-hover:shadow-[0_0_10px_rgba(139,92,246,0.15)] transition-all duration-300">
+                <Briefcase className="h-3.5 w-3.5 text-brand-accent-purple group-hover:text-brand-accent-cyan transition-colors" />
               </div>
 
               {/* Role & Company Header */}

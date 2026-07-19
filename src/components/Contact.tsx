@@ -39,7 +39,7 @@ export default function Contact() {
         
         {/* Section Header */}
         <div className="flex flex-col space-y-3 mb-16 md:mb-24">
-          <span className="text-xs font-mono text-neutral-500 tracking-wider uppercase">
+          <span className="text-xs font-mono text-brand-accent-cyan tracking-wider uppercase">
             Let's Collaborate
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white font-sans">
@@ -81,7 +81,7 @@ export default function Contact() {
                 <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-2 pt-2">
                   <a
                     href={`mailto:${personalInfo.email}`}
-                    className="flex items-center space-x-3 bg-neutral-950 border border-neutral-900 rounded-lg p-3 px-4 hover:border-neutral-800 transition-colors group flex-1"
+                    className="flex items-center space-x-3 bg-neutral-950 border border-neutral-900 rounded-lg p-3 px-4 hover:border-neutral-800 transition-colors group flex-1 focus:outline-none focus:ring-1 focus:ring-neutral-700"
                     id="contact-email-link"
                   >
                     <Mail className="h-4 w-4 text-neutral-500 group-hover:text-white transition-colors" />
@@ -93,8 +93,9 @@ export default function Contact() {
                   {/* Copy Button */}
                   <button
                     onClick={handleCopyEmail}
-                    className="flex items-center justify-center space-x-2 bg-neutral-950 border border-neutral-900 rounded-lg p-3 px-4 hover:border-neutral-800 hover:bg-neutral-900 transition-colors cursor-pointer text-neutral-400 hover:text-white"
+                    className="flex items-center justify-center space-x-2 bg-neutral-950 border border-neutral-900 rounded-lg p-3 px-4 hover:border-neutral-800 hover:bg-neutral-900 transition-colors cursor-pointer text-neutral-400 hover:text-white focus:outline-none focus:ring-1 focus:ring-neutral-700"
                     title="Copy Email Address"
+                    aria-label="Copy email address"
                     id="contact-copy-btn"
                   >
                     {copied ? (

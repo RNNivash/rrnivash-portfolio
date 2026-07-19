@@ -9,6 +9,9 @@
   --color-brand-card: #0a0a0c;
   --color-brand-border: #16161a;
   --color-brand-muted: #8e8e93;
+  --color-brand-accent-blue: #3b82f6;
+  --color-brand-accent-purple: #8b5cf6;
+  --color-brand-accent-cyan: #06b6d4;
 }
 
 /* Base custom styles to achieve the ultra-clean OpenAI/Linear/Stripe dark aesthetic */
@@ -44,4 +47,41 @@ html {
 ::selection {
   background-color: rgba(255, 255, 255, 0.15);
   color: #ffffff;
+}
+
+/* Premium utility classes for transitions and focus states */
+.premium-focus {
+  outline: none;
+  position: relative;
+}
+.premium-focus:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.premium-card-transition {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Glassmorphic card styling rules */
+.glass-card {
+  background-color: rgba(10, 10, 12, 0.65);
+  backdrop-filter: blur(16px) saturate(130%);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+}
+
+.glass-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(139, 92, 246, 0.25);
+  background-color: rgba(10, 10, 12, 0.85);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(139, 92, 246, 0.03),
+    0 0 1px rgba(139, 92, 246, 0.5) inset;
 }

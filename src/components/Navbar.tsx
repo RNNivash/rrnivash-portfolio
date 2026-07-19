@@ -12,6 +12,7 @@ export default function Navbar() {
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
     { name: "Skills", href: "#skills" },
+    { name: "Education", href: "#education" },
     { name: "About", href: "#about" },
     { name: "Contact", href: "#contact" },
   ];
@@ -25,11 +26,12 @@ export default function Navbar() {
       sections.push("hero");
       
       let current = "hero";
+      const threshold = 180; // height offset threshold
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 160 && rect.bottom >= 160) {
+          if (rect.top <= threshold && rect.bottom >= threshold) {
             current = section;
             break;
           }
@@ -60,15 +62,11 @@ export default function Navbar() {
   };
 
   return (
-    <motion.header
-      id="navbar"
-      initial={{ y: -50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-[var(--color-brand-border)] bg-[#030303]/80 backdrop-blur-md py-4"
-          : "bg-transparent py-6"
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? "bg-[#030303]/80 backdrop-blur-md border-b border-white/[0.03] py-3.5" 
+          : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -78,8 +76,16 @@ export default function Navbar() {
           className="flex items-center space-x-2.5 group text-left cursor-pointer"
           id="nav-logo"
         >
-          <div className="h-7 w-7 rounded bg-white flex items-center justify-center transition-transform duration-500 group-hover:rotate-12">
-            <span className="text-[#030303] font-mono text-sm font-bold">N</span>
+          <div className="h-7 w-7 flex items-center justify-center transition-transform duration-500 group-hover:rotate-12">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" className="h-7 w-7">
+              <path d="M30 75V25L70 75V25" stroke="url(#nav-logo-grad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="nav-logo-grad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#3b82f6" />
+                  <stop offset="100%" stop-color="#8b5cf6" />
+                </linearGradient>
+              </defs>
+            </svg>
           </div>
           <div>
             <span className="text-white font-medium text-sm tracking-tight block">
@@ -92,7 +98,7 @@ export default function Navbar() {
         </button>
 
         {/* Desktop Nav Items */}
-        <nav className="hidden md:flex items-center space-x-1.5" id="nav-desktop">
+        <nav className="hidden md:flex items-center space-x-6" id="nav-desktop">
           {navItems.map((item) => {
             const id = item.href.substring(1);
             const isActive = activeSection === id;
@@ -100,20 +106,18 @@ export default function Navbar() {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(id)}
-                className={`px-3.5 py-1.5 text-xs font-medium tracking-tight rounded-full transition-all relative cursor-pointer ${
-                  isActive
-                    ? "text-white"
-                    : "text-neutral-400 hover:text-neutral-200"
+                className={`text-xs font-mono tracking-wider transition-colors duration-300 relative py-1.5 ${
+                  isActive ? "text-white" : "text-neutral-400 hover:text-white"
                 }`}
               >
+                {item.name}
                 {isActive && (
-                  <motion.span
-                    layoutId="activeNavBackground"
-                    className="absolute inset-0 bg-neutral-900 rounded-full -z-10 border border-neutral-800"
+                  <motion.div
+                    layoutId="activeUnderline"
+                    className="absolute bottom-0 inset-x-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
-                {item.name}
               </button>
             );
           })}
@@ -153,22 +157,29 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden border-b border-[var(--color-brand-border)] bg-[#030303]/95 backdrop-blur-lg overflow-hidden absolute top-full left-0 right-0"
+            className="md:hidden border-b border-white/[0.04] bg-[#030303]/90 backdrop-blur-xl overflow-hidden absolute top-full left-0 right-0 shadow-2xl"
             id="nav-mobile-menu"
           >
             <div className="px-6 py-6 space-y-4 flex flex-col">
               {navItems.map((item) => {
-                const id = item.href.substring(1);
+                const id = item.href.replace("#", "");
                 const isActive = activeSection === id;
                 return (
                   <button
                     key={item.name}
                     onClick={() => scrollToSection(id)}
-                    className={`text-left text-sm font-medium py-1 transition-colors cursor-pointer ${
-                      isActive ? "text-white font-semibold" : "text-neutral-400"
+                    className={`text-xs font-mono tracking-wider transition-colors duration-300 relative py-1.5 ${
+                      isActive ? "text-white" : "text-neutral-400 hover:text-white"
                     }`}
                   >
                     {item.name}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeUnderline"
+                        className="absolute bottom-0 inset-x-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
                   </button>
                 );
               })}
@@ -188,6 +199,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }

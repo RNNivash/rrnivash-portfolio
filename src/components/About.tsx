@@ -27,8 +27,8 @@ export default function About() {
         
         {/* Section Header */}
         <div className="flex flex-col space-y-3 mb-16 md:mb-24">
-          <span className="text-xs font-mono text-neutral-500 tracking-wider uppercase">
-            Professional Philosophy
+          <span className="text-xs font-mono text-brand-accent-blue tracking-wider uppercase">
+            Personal Narrative
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white font-sans">
             Career Journey
@@ -40,19 +40,29 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start" id="about-split-container">
           
           {/* Left Column: Philosophical/Engineering Pillars & Portrait */}
-          <div className="lg:col-span-4 space-y-6" id="about-left-pillars">
+          <motion.div
+            initial={{ opacity: 0, x: -35 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-4 space-y-6"
+            id="about-left-pillars"
+          >
             {/* Portrait Image Container */}
             <div className="border border-neutral-900 rounded-xl overflow-hidden bg-[#0a0a0c]/40 aspect-square relative group">
               <img 
-                src="/images/profile.jpg" 
+                src="/images/profile.webp" 
                 alt="Nivash R N" 
+                loading="lazy"
+                width="400"
+                height="400"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#030303]/40 to-transparent pointer-events-none" />
               <div className="absolute inset-0 border border-transparent group-hover:border-neutral-800/50 pointer-events-none transition-colors duration-500 rounded-xl" />
             </div>
 
-            <div className="border border-neutral-900 rounded-xl p-6 bg-[#0a0a0c]/40 space-y-6">
+            <div className="rounded-xl p-6 glass-card space-y-6 glass-card-hover">
               <span className="text-xs font-mono text-neutral-500 block uppercase tracking-wider">
                 Engineering Pillars
               </span>
@@ -84,22 +94,41 @@ export default function About() {
                 <span>CWD // src/data/aboutData</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Typed Paragraph blocks of professional journey */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 35 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-8 flex flex-col space-y-6 text-neutral-400 text-sm sm:text-base leading-relaxed font-sans font-light"
+            className="lg:col-span-8 flex flex-col text-neutral-400 text-sm sm:text-base leading-relaxed font-sans font-light"
             id="about-right-text"
           >
-            {aboutData.journey.map((paragraph, index) => (
-              <p key={index} className="first-of-type:text-white first-of-type:font-normal first-of-type:text-base sm:first-of-type:text-lg">
-                {paragraph}
-              </p>
-            ))}
+            {/* Minimalist Journey Flow Diagram */}
+            <div className="flex flex-wrap items-center gap-y-3 gap-x-2 text-[10px] sm:text-[11px] font-mono mb-8 py-4 border-b border-neutral-900/60 pb-8 text-neutral-500">
+              <span className="text-brand-accent-blue font-semibold bg-blue-500/5 px-2.5 py-1 rounded border border-blue-500/10 hover:border-blue-500/20 transition-colors">Python</span>
+              <span>➔</span>
+              <span className="text-brand-accent-blue font-semibold bg-blue-500/5 px-2.5 py-1 rounded border border-blue-500/10 hover:border-blue-500/20 transition-colors">Backend</span>
+              <span>➔</span>
+              <span className="text-brand-accent-blue font-semibold bg-blue-500/5 px-2.5 py-1 rounded border border-blue-500/10 hover:border-blue-500/20 transition-colors">FastAPI</span>
+              <span>➔</span>
+              <span className="text-brand-accent-purple font-semibold bg-purple-500/5 px-2.5 py-1 rounded border border-purple-500/10 hover:border-purple-500/20 transition-colors">Generative AI</span>
+              <span>➔</span>
+              <span className="text-brand-accent-purple font-semibold bg-purple-500/5 px-2.5 py-1 rounded border border-purple-500/10 hover:border-purple-500/20 transition-colors">LLMs</span>
+              <span>➔</span>
+              <span className="text-brand-accent-purple font-semibold bg-purple-500/5 px-2.5 py-1 rounded border border-purple-500/10 hover:border-purple-500/20 transition-colors">Associate AI Engineer</span>
+              <span>➔</span>
+              <span className="text-white font-semibold bg-white/5 px-2.5 py-1 rounded border border-white/10 hover:border-white/20 transition-colors">Production AI Systems</span>
+            </div>
+
+            <div className="space-y-6">
+              {aboutData.journey.map((paragraph, index) => (
+                <p key={index} className="first-of-type:text-white first-of-type:font-normal first-of-type:text-base sm:first-of-type:text-lg">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </motion.div>
 
         </div>
