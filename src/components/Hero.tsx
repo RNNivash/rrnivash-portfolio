@@ -183,14 +183,14 @@ export default function Hero() {
               <div className="text-[10px] text-neutral-500 font-medium">bash - capabilities.json</div>
               <div className="w-10" />
             </div>
-            
+
             {/* Terminal Body Content */}
             <div className="text-[11px] leading-relaxed space-y-3.5 flex-grow flex flex-col justify-between text-neutral-300">
               <div className="space-y-3">
                 <div>
                   <span className="text-brand-accent-blue">$</span> <span className="text-brand-accent-purple">cat</span> capabilities.json
                 </div>
-                
+
                 <div className="text-neutral-400 bg-[#030303]/50 p-4 rounded-lg border border-white/[0.02] backdrop-blur-sm">
                   <span className="text-brand-accent-purple">{`{`}</span>
                   <div className="pl-4">
@@ -212,9 +212,9 @@ export default function Hero() {
                     <br />
                     <span className="text-brand-accent-blue">"current_focus"</span>: <span className="text-amber-400">{`[`}</span>
                     <div className="pl-4 space-y-0.5">
-                      <div><span className="text-emerald-400">"AI Numerology Platform"</span>,</div>
-                      <div><span className="text-emerald-400">"Astrology AI Services"</span>,</div>
-                      <div><span className="text-emerald-400">"Multi-LLM Architecture"</span></div>
+                      <div><span className="text-emerald-400">"Agentic AI"</span>,</div>
+                      <div><span className="text-emerald-400">"Multi-LLM Architecture"</span>,</div>
+                      <div><span className="text-emerald-400">"Application Deployment"</span></div>
                     </div>
                     <span className="text-amber-400">{`]`}</span>,
                     <br />
@@ -223,7 +223,7 @@ export default function Hero() {
                   <span className="text-brand-accent-purple">{`}`}</span>
                 </div>
               </div>
-              
+
               <div className="text-[10px] text-neutral-500 flex items-center space-x-1.5 mt-auto pt-4">
                 <span className="h-1.5 w-1.5 bg-emerald-500 rounded-full animate-pulse" />
                 <span>system: online & ready</span>
@@ -234,15 +234,15 @@ export default function Hero() {
           {/* 2. Image Panel (Office Photo) */}
           <div className="relative w-full min-h-[300px] md:min-h-0 aspect-[4/5] rounded-xl border border-white/[0.04] bg-neutral-950 overflow-hidden shadow-2xl group glass-card">
             {/* Background Office Photo */}
-            <img 
-              src="/images/hero.webp" 
-              alt="Nivash R N - Associate AI Engineer" 
+            <img
+              src="/images/hero.webp"
+              alt="Nivash R N - Associate AI Engineer"
               loading="eager"
               width="440"
               height="550"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03] opacity-80"
             />
-            
+
             {/* Subtle dark gradient overlay on the image for readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#030303]/90 via-[#030303]/30 to-transparent pointer-events-none" />
             <div className="absolute inset-0 border border-transparent group-hover:border-brand-accent-purple/15 pointer-events-none transition-colors duration-500 rounded-xl" />

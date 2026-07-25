@@ -164,6 +164,7 @@ export const skillsData: SkillGroup[] = [
       "MySQL",
       "PostgreSQL",
       "SQLite",
+      "MongoDB",
       "Pinecone",
       "ChromaDB",
       "FAISS",
@@ -203,7 +204,7 @@ export const aboutData = {
 export const educationData: Education[] = [
   {
     institution: "SNS College of Engineering",
-    degree: "B.E Computer Science and Engineering",
+    degree: "B.E Computer Science and Technology",
     period: "2020 – 2024",
     location: "Coimbatore, India",
     cgpa: "8.9",
@@ -211,25 +212,19 @@ export const educationData: Education[] = [
       "Specialized in Software Engineering, Core Computing, and Database Architectures",
       "Acquired strong foundations in programming paradigms, algorithms, and backend systems"
     ],
-    certifications: [
-      "Python Developer Credentials",
-      "SQL & Database Design Foundations",
-      "End-to-End Test Automation (Playwright)",
-      "Prompt Engineering & LLM Orchestrations"
-    ]
   },
   {
     institution: "Little Scholars Matric Hr Sec School",
     degree: "Higher Secondary (HSC)",
     period: "2019 – 2020",
-    location: "Coimbatore, India",
+    location: "Tanjore, India",
     cgpa: "62%"
   },
   {
     institution: "Little Scholars Matric Hr Sec School",
-    degree: "SSLC",
+    degree: "Secondary School Leaving Certificate (SSLC)",
     period: "2017 – 2018",
-    location: "Coimbatore, India",
+    location: "Tanjore, India",
     cgpa: "79%"
   }
 ];
